@@ -1,0 +1,19 @@
+{
+  "name": "cryostasis",
+  "version": "0.1.0",
+  "description": "Register callback and update object in feature",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitpear/cryostasis.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/bitpear/cryostasis/issues"
+  },
+  "homepage": "https://github.com/bitpear/cryostasis#readme"
+}
