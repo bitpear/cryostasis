@@ -1,14 +1,13 @@
 function copy(o) {
-  var out, v, key;
-  out = Array.isArray(o) ? [] : {};
-  for (key in o) {
-    v = o[key];
+  const out = Array.isArray(o) ? [] : {};
+  for (let key in o) {
+    let v = o[key];
     out[key] = (typeof v === "object" && v !== null) ? copy(v) : v;
   }
   return out;
 }
 
-function Cryostasis(cb = o => o, init) {
+module.exports = (cb = o => o, init) => {
   let cryo = {};
 
   if (init) {
@@ -39,5 +38,3 @@ function Cryostasis(cb = o => o, init) {
   Object.defineProperties(cryo, props);
   return cryo;
 };
-
-module.exports = Cryostasis;

@@ -1,10 +1,10 @@
 {
   "name": "cryostasis",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Register callback and update object in feature",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/bitpear/cryostasis/issues"
   },
-  "homepage": "https://github.com/bitpear/cryostasis#readme"
+  "engines": {
+    "node": ">= 4.0.0"
+  },
+  "homepage": "https://github.com/bitpear/cryostasis#readme",
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
 }
