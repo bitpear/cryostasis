@@ -1,10 +1,10 @@
 const assert = require('assert');
-const Cryostasis = require('../');
+const Cryo = require('../');
 
 
 describe('Cryostasis', function () {
   describe('object', function () {
-    const obj = Cryostasis(() => ({
+    const obj = Cryo(() => ({
       value: 123,
     }));
 
@@ -23,7 +23,7 @@ describe('Cryostasis', function () {
   });
 
   describe('object with defaults', function () {
-    const obj = Cryostasis(() => ({
+    const obj = Cryo(() => ({
       value: 123,
     }), {
       value: 321,
@@ -44,7 +44,7 @@ describe('Cryostasis', function () {
   });
 
   describe('array', function () {
-    const arr = Cryostasis(() => ([1, 2, 3]), []);
+    const arr = Cryo(() => ([1, 2, 3]), []);
     describe('before #update()', function () {
       it('arr[0] should return undefined', function () {
         assert.equal(arr[0], undefined);
@@ -70,7 +70,7 @@ describe('Cryostasis', function () {
   });
 
   describe('array with defaults', function () {
-    const arr = Cryostasis(() => ([1, 2, 3]), [0000]);
+    const arr = Cryo(() => ([1, 2, 3]), [0000]);
 
     describe('before #update()', function () {
       it('arr[0] should return 0000', function () {
@@ -97,7 +97,7 @@ describe('Cryostasis', function () {
   });
 
   describe('promise', function () {
-    const obj = Cryostasis(async () => ({
+    const obj = Cryo(async () => ({
       value: 00000
     }), {
       value: 99999,
