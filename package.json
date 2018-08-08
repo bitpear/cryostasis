@@ -4,7 +4,7 @@
   "description": "Register callback and update object in feature",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/bitpear/cryostasis/issues"
   },
-  "homepage": "https://github.com/bitpear/cryostasis#readme"
+  "homepage": "https://github.com/bitpear/cryostasis#readme",
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
 }
