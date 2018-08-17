@@ -24,6 +24,7 @@ const Cryo = require('cryostasis');
 
 const obj = Cryo(o => {
   o.value += 1;
+  return o;
 }, {
   value: 0
 });

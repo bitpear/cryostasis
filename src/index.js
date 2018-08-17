@@ -7,27 +7,32 @@ function copy(o) {
   return out;
 }
 
-module.exports = (cb = o => o, init) => {
-  let cryo = {};
+function resolve(cb, cryo) {
+  const ret = cb(cryo);
 
-  if (init) {
-    cryo = copy(init);
+  if (ret instanceof Promise) {
+    return ret.then(retPromise => retPromise ? Object.assign(cryo, retPromise) : cryo);
   }
+
+  return ret ? Object.assign(cryo, ret) : cryo;
+}
+
+module.exports = (cb = o => o, init) => {
+  let cryo = init ? copy(init) : {};
 
   const props = {
     update: {
       value: () => {
-        const ret = cb(copy(cryo));
+        if (init && init.isCryostasis) {
+          const ret = init.update();
+          if (ret instanceof Promise) {
+            return ret.then(retPromise => resolve(cb, Object.assign(cryo, retPromise)));
+          }
 
-        if (ret instanceof Promise) {
-          return ret.then((retPromise) => Object.assign(cryo, retPromise));
+          return resolve(cb, Object.assign(cryo, ret));
         }
 
-        if (typeof ret !== 'object') {
-          throw new Error('Error: return value is not an object.');
-        }
-
-        return Object.assign(cryo, ret);
+        return resolve(cb, cryo);
       },
     },
     isCryostasis: {
